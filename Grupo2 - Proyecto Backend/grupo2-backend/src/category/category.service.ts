@@ -22,7 +22,6 @@ export class CategoryService extends PrismaClient implements OnModuleInit{
   });
   }
 
-
   remove(id: string) {
     return this.category.delete({where: {id}});
   }

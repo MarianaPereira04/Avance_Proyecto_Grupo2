@@ -37,7 +37,6 @@ model Category {
   id        String   @id @default(uuid())
   name      String
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 }
 
 model Order {
@@ -46,7 +45,6 @@ model Order {
   status    String   // pending | shipped | delivered
   total     Float
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 }
 
 model OrderItem {
@@ -58,17 +56,6 @@ model OrderItem {
   createdAt DateTime @default(now())
 }
 
-//ELIMINAR
-model Review {
-  id        String   @id @default(uuid())
-  rating    Int
-  comment   String?
-  buyer     String   // reference to User
-  product   String   // reference to Product
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-}
-
 model Inventory {
   id        String   @id @default(uuid())
   product   String   // reference to Product
@@ -76,15 +63,6 @@ model Inventory {
   artisan   String   // reference to User (artisan)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-}
-
-//ELIMINAR
-model Message {
-  id         String   @id @default(uuid())
-  sender     String   // reference to User
-  receiver   String   // reference to User
-  content    String
-  createdAt  DateTime @default(now())
 }
 
 model Address {
@@ -96,7 +74,6 @@ model Address {
   zipCode   String
   country   String
   createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 }
 
 model Notification {
