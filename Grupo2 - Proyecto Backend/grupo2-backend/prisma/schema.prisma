@@ -1,0 +1,109 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(uuid())
+  name      String
+  email     String
+  password  String
+  role      String   // buyer | artisan | admin
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Product {
+  id          String   @id @default(uuid())
+  name        String
+  description String
+  price       Float
+  stock       Int
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Category {
+  id        String   @id @default(uuid())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Order {
+  id        String   @id @default(uuid())
+  buyer     String   // reference to User
+  status    String   // pending | shipped | delivered
+  total     Float
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model OrderItem {
+  id        String   @id @default(uuid())
+  order     String   // reference to Order
+  product   String   // reference to Product
+  quantity  Int
+  price     Float
+  createdAt DateTime @default(now())
+}
+
+//ELIMINAR
+model Review {
+  id        String   @id @default(uuid())
+  rating    Int
+  comment   String?
+  buyer     String   // reference to User
+  product   String   // reference to Product
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Inventory {
+  id        String   @id @default(uuid())
+  product   String   // reference to Product
+  quantity  Int
+  artisan   String   // reference to User (artisan)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+//ELIMINAR
+model Message {
+  id         String   @id @default(uuid())
+  sender     String   // reference to User
+  receiver   String   // reference to User
+  content    String
+  createdAt  DateTime @default(now())
+}
+
+model Address {
+  id        String   @id @default(uuid())
+  user      String   // reference to User
+  street    String
+  city      String
+  state     String
+  zipCode   String
+  country   String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Notification {
+  id        String   @id @default(uuid())
+  user      String   // reference to User
+  message   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
