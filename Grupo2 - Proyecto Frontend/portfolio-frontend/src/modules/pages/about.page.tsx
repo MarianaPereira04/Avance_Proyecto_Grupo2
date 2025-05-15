@@ -5,7 +5,7 @@ interface Props{
 }
 
 export default function AboutPage({children}:Props) {
-  return(
+  return (
     <main className=''>
         {children}
     </main>

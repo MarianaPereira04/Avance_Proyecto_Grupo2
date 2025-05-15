@@ -1,25 +1,23 @@
-export function useLayout(pathname: string) {
-    const routes = [{
-        path: '/',
-        name: 'about'
-    },
-    {
-        path: '/resume',
-        name: 'Resume'
-    },
-    {
-        path: '/portfolio',
-        name: 'Portfolio'
-    },
-    {
-        path: '/blog',
-        name: 'Blog'
-    },
-    {
-        path: '/contact',
-        name: 'Contact'
-    }
 
+export function useLayout(pathname: string){
+    const routes = [{
+        path:'/',
+        name:'about'
+    },{
+        path:'/resume',
+        name:'Resumen'
+    },{
+        path:'/portfolio',
+        name:'Portafolio'
+    },
+    {
+        path:'/blog',
+        name:'Blog'
+    },{
+        path:'/contact',
+        name:'Contacto'
+    }
+        
     ];
 
     const title = pathname === "/"
@@ -32,6 +30,6 @@ export function useLayout(pathname: string) {
         ? "Portfolio"
         : "Blog";
         return{
-            title, routes
+           title, routes
         }
 }

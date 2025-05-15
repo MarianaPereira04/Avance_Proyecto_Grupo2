@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function Activity() {
-  return (
+  return ( 
     <div className='flex bg-gradient-to-br from-neutral-800 to-[#222222] px-4 py-8 rounded-xl shadow-lg'>
         <div className='px-3'>
             Icono
@@ -11,7 +11,7 @@ export default function Activity() {
                 Nombre de la actividad
             </h3>
             <p className='text-white'>
-                Resumen de la actividad
+                resumen de la actividad
             </p>
         </div>
     </div>
