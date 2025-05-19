@@ -8,7 +8,7 @@ export default function Info() {
       <div>
         <h1 className="text-black text-sm uppercase font-bold">Correos</h1>
         <p className="text-white text-sm">dmpereira-2032b@corhuila.edu.co</p>
-        <p className="text-white text-sm">kcplaza-2032bb@corhuila.edu.co</p>
+        <p className="text-white text-sm">kcantillo-2032bb@corhuila.edu.co</p>
       </div>
     </div>
   );

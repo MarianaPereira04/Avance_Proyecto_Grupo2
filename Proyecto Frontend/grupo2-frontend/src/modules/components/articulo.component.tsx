@@ -1,7 +1,15 @@
 import Image from 'next/image'
 import React from 'react'
 
-export default function Articulo({ nombre, descripcion, categoria, fecha, imagen }) {
+interface ArticuloProps {
+  nombre: string
+  descripcion: string
+  categoria: string
+  fecha: string
+  imagen: string
+}
+
+export default function Articulo({ nombre, descripcion, categoria, fecha, imagen }: ArticuloProps) {
   return (
     <article className="rounded-xl flex flex-col gap-2 group bg-gray-100 hover:cursor-pointer">
       <div className="overflow-hidden rounded-xl">
